@@ -6,7 +6,8 @@
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
     "start": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "test": "node_modules/.bin/mocha"
+    "test": "node_modules/.bin/mocha",
+    "build": "browserify -t [ babelify --presets [ react ] ] ./src/index.js -o bundle.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,8 @@
   },
   "dependencies": {
     "babel-preset-stage-1": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "react": "^0.14.3",

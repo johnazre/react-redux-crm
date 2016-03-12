@@ -20,11 +20,11 @@ export default class App extends Component {
           <div className="row">
             <div className="col-md-6">
               <h2>Add a contact</h2>
-              <InputForm dispatch={this.props.dispatch} />
+              <InputForm />
             </div>
             <div className="col-md-6">
               <h2>View Your Contacts</h2>
-              <ContactList contacts={this.props.contacts.all}/>
+              <ContactList dispatch={this.props.dispatch} contacts={this.props.contacts.all}/>
             </div>
           </div>
         </div>

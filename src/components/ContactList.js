@@ -1,10 +1,14 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { removeContact } from '../actions/actions'
+
 
 class ContactList extends Component {
 
-  static propTypes = {
-    contacts: React.PropTypes.array.isRequired
-  };
+  onRemoveClick(some, contact) {
+    console.log("onRemoveClick: ", this.props)
+    this.props.removeContact(contact.id)
+  }
 
   render() {
     const styles = {
@@ -14,21 +18,31 @@ class ContactList extends Component {
         listStyleType: 'none'
       }
     }
-    // console.log('this is props in CL: ', this.props);
+    console.log('this is props in CL: ', this.props);
     return (
       <ul>
         {
-          this.props.contacts.map(function(contact){
-            return <li key={contact.id} style={styles.listItem}>
-              <p>First name: {contact.text.firstName}</p>
-              <p>Last name: {contact.text.lastName}</p>
-              <p>Email: {contact.text.email}</p>
-            </li>
+          this.props.contacts.map((contact) => {
+            return (
+b
+              <li key={contact.id} style={styles.listItem}>
+                <p>First name: {contact.text.firstName}</p>
+                <p>Last name: {contact.text.lastName}</p>
+                <p>Email: {contact.text.email}</p>
+                <button className="btn btn-default" onClick={this.onRemoveClick(this, contact)}>
+                  Remove
+                </button>
+              </li>
+
+            )
           })
         }
+
       </ul>
     );
   }
 }
+
+
 
 export default ContactList;
