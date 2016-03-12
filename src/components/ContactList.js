@@ -46,7 +46,6 @@ class ContactList extends Component {
 
 function mapStateToProps(state) {
   // Whatever is returned will show up as props
-  // inside of BookList
   console.log('mapStateToProps', state)
   return state;
 }
@@ -54,12 +53,9 @@ function mapStateToProps(state) {
 // Anything reutrned form this function will end up as props
 // to all of our reducers
 function mapDispatchToProps(dispatch){
-  // Whenever selectBook is called, the result should be passed
-  // to all of our reducers
+
   return bindActionCreators({ removeContact }, dispatch)
 }
 
-// Promote  BookList from a component to a container -
-// it needs to know about this new dispatch method, selectBook.
-// Make it available as a prop.
+
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
