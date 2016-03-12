@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { removeContact } from '../actions/actions'
+import { bindActionCreators } from 'redux';
+import { removeContact } from '../actions/actions';
 
 
 class ContactList extends Component {
@@ -18,13 +19,13 @@ class ContactList extends Component {
         listStyleType: 'none'
       }
     }
-    console.log('this is props in CL: ', this.props);
+    console.log('this is props in CL: ', this.props.contacts);
     return (
       <ul>
         {
-          this.props.contacts.map((contact) => {
+          this.props.contacts.all.map((contact) => {
             return (
-b
+
               <li key={contact.id} style={styles.listItem}>
                 <p>First name: {contact.text.firstName}</p>
                 <p>Last name: {contact.text.lastName}</p>
@@ -43,6 +44,22 @@ b
   }
 }
 
+function mapStateToProps(state) {
+  // Whatever is returned will show up as props
+  // inside of BookList
+  console.log('mapStateToProps', state)
+  return state;
+}
 
+// Anything reutrned form this function will end up as props
+// to all of our reducers
+function mapDispatchToProps(dispatch){
+  // Whenever selectBook is called, the result should be passed
+  // to all of our reducers
+  return bindActionCreators({ removeContact }, dispatch)
+}
 
-export default ContactList;
+// Promote  BookList from a component to a container -
+// it needs to know about this new dispatch method, selectBook.
+// Make it available as a prop.
+export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
