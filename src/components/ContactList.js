@@ -6,11 +6,6 @@ import { removeContact } from '../actions/actions';
 
 class ContactList extends Component {
 
-  onRemoveClick(some, contact) {
-    console.log("onRemoveClick: ", this.props)
-    this.props.removeContact(contact.id)
-  }
-
   render() {
     const styles = {
       listItem : {
@@ -23,14 +18,14 @@ class ContactList extends Component {
     return (
       <ul>
         {
-          this.props.contacts.all.map((contact) => {
+          this.props.contacts.all.map((contact, index) => {
             return (
 
               <li key={contact.id} style={styles.listItem}>
                 <p>First name: {contact.text.firstName}</p>
                 <p>Last name: {contact.text.lastName}</p>
                 <p>Email: {contact.text.email}</p>
-                <button className="btn btn-default" onClick={this.onRemoveClick(this, contact)}>
+                <button className="btn btn-default" onClick={() => this.props.removeContact(index)}>
                   Remove
                 </button>
               </li>

@@ -20,7 +20,8 @@ export default function(state = INITIAL_STATE, action) {
     console.log("state in reducer: ", state)
     return Object.assign({}, state, {
       all: [
-          ...state.all.slice(action.id + 1)
+        ...state.all.slice(0, action.id),
+        ...state.all.slice(action.id + 1)
       ]
     })
 
