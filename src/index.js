@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
-// import logger from 'redux-logger';
+import logger from 'redux-logger';
 import rootReducer from './store';
 import routes from './routes';
 
 const finalCreateStore = applyMiddleware(
-  // logger()
+  logger()
 )(createStore)
 
 ReactDOM.render(
