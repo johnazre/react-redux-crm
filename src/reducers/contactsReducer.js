@@ -5,7 +5,7 @@ export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case "ADD_CONTACT":
     console.log("action: ", action)
-    console.log("state in reducer: ", state)
+    console.log("state in ContactReducer: ", state)
     return Object.assign({}, state, {
       all: [
           ...state.all, {
@@ -17,7 +17,7 @@ export default function(state = INITIAL_STATE, action) {
 
     case "REMOVE_CONTACT":
     console.log("action: ", action)
-    console.log("state in reducer: ", state)
+    console.log("state in ContactReducer: ", state)
     return Object.assign({}, state, {
       all: [
         ...state.all.slice(0, action.id),

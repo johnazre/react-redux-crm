@@ -16,7 +16,7 @@ class ContactList extends Component {
         listStyleType: 'none'
       }
     }
-    console.log('this is props in CL: ', this.props.contacts);
+    console.log('this is props in ContactList: ', this.props);
     return (
       <ul>
         {
@@ -53,7 +53,8 @@ function mapStateToProps(state) {
 }
 
 // Anything reutrned form this function will end up as props
-// to all of our reducers
+// to all of our
+
 function mapDispatchToProps(dispatch){
 
   return bindActionCreators({ removeContact }, dispatch)

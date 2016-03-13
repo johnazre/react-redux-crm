@@ -1,7 +1,10 @@
 import React, {Component, PropTypes} from 'react';
 import {reduxForm} from 'redux-form';
+import TextField from 'material-ui/lib/text-field';
+import RaisedButton from 'material-ui/lib/raised-button';
 
-import { addContact } from '../actions/actions';
+
+import { addTask } from '../actions/actions';
 
 class TaskForm extends Component {
   static propTypes = {
@@ -9,7 +12,7 @@ class TaskForm extends Component {
   };
 
   onSubmit(props) {
-    console.log('on submit props: ', props)
+    console.log('on submit task props: ', props)
     this.props.addTask(props)
   }
 
@@ -35,11 +38,6 @@ class TaskForm extends Component {
           {...description}
         /><br />
         <TextField
-          floatingLabelText="Organization"
-          style={styles.inputFields}
-          {...organization}
-        /><br />
-        <TextField
           floatingLabelText="Start Date"
           style={styles.inputFields}
           {...startDate}
@@ -49,17 +47,14 @@ class TaskForm extends Component {
           style={styles.inputFields}
           {...dueDate}
         /><br />
-        <div>
-          <button className="btn btn-default" type="submit" style={styles.submitButton}>
-            Submit
-          </button>
-        </div>
+      <RaisedButton label="Submit" style={styles.submitButton} onMouseDown={handleSubmit(this.onSubmit.bind(this))} />
+
       </form>
     );
   }
 }
 
 export default reduxForm({
-  form: 'contactForm',
+  form: 'taskForm',
   fields: ['taskName', 'description', 'startDate', 'dueDate']
 }, null, { addTask })(TaskForm);

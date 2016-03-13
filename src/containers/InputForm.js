@@ -75,7 +75,7 @@ class InputForm extends Component {
           style={styles.inputFields}
           {...notes}
         /><br />
-      <RaisedButton label="Submit" style={styles.submitButton} onMouseDown={this.onSubmit.bind(this)} />
+      <RaisedButton label="Submit" style={styles.submitButton} onMouseDown={handleSubmit(this.onSubmit.bind(this))} />
       </form>
     );
   }

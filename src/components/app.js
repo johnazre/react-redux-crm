@@ -9,6 +9,8 @@ injectTapEventPlugin();
 
 import ContactList from './ContactList'
 import InputForm from '../containers/InputForm'
+import TaskForm from '../containers/TaskForm'
+import TaskList from './TaskList'
 
 export default class App extends Component {
   render() {
@@ -30,6 +32,16 @@ export default class App extends Component {
             <div className="flex-item-app">
               <h2>View Your Contacts</h2>
               <ContactList dispatch={this.props.dispatch} contacts={this.props.contacts.all}/>
+            </div>
+        </div>
+        <div className="container">
+            <div className="flex-item-app">
+              <h2>Add a task</h2>
+              <TaskForm />
+            </div>
+            <div className="flex-item-app">
+              <h2>View Your Contacts</h2>
+              <TaskList List dispatch={this.props.dispatch} tasks={this.props.tasks.all}/>
             </div>
         </div>
       </div>
