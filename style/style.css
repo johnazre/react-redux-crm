@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-item-app{
+  flex: 1;
+  border: 1px black solid;
+  padding-left: 20px;
+  overflow-y: scroll;
+}

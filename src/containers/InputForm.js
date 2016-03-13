@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {reduxForm} from 'redux-form';
+import TextField from 'material-ui/lib/text-field';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 import { addContact } from '../actions/actions';
 
@@ -14,45 +16,66 @@ class InputForm extends Component {
   }
 
   render() {
-    const { fields: {firstName, lastName, email, notes}, handleSubmit } = this.props;
+    const { fields: {firstName, lastName, occupation, organization, email, phone, website, address, notes}, handleSubmit } = this.props;
 
     const styles = {
       submitButton : {
         marginTop : 15
+      },
+      inputFields: {
+        width: '50%'
       }
     }
 
     return (
-      <form className="form-group" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <div>
-          <label>First Name</label>
-          <div>
-            <input className="form-control" type="text" placeholder="First Name" {...firstName}/>
-          </div>
-        </div>
-        <div>
-          <label>Last Name</label>
-          <div>
-            <input className="form-control" type="text" placeholder="Last Name" {...lastName}/>
-          </div>
-        </div>
-        <div>
-          <label>Email</label>
-          <div>
-            <input className="form-control" type="email" placeholder="Email" {...email}/>
-          </div>
-        </div>
-        <div>
-          <label>Notes</label>
-          <div>
-            <textarea className="form-control" {...notes} />
-          </div>
-        </div>
-        <div>
-          <button className="btn btn-default" type="submit" style={styles.submitButton}>
-            Submit
-          </button>
-        </div>
+      <form className="form-group">
+
+        <TextField
+          floatingLabelText="First Name"
+          style={styles.inputFields}
+          {...firstName}
+        /><br />
+        <TextField
+          floatingLabelText="Last Name"
+          style={styles.inputFields}
+          {...lastName}
+        /><br />
+        <TextField
+          floatingLabelText="Occupation"
+          style={styles.inputFields}
+          {...occupation}
+        /><br />
+        <TextField
+          floatingLabelText="Organization"
+          style={styles.inputFields}
+          {...organization}
+        /><br />
+        <TextField
+          floatingLabelText="Email"
+          style={styles.inputFields}
+          {...email}
+        /><br />
+        <TextField
+          floatingLabelText="Phone"
+          style={styles.inputFields}
+          {...phone}
+        /><br />
+        <TextField
+          floatingLabelText="Website"
+          style={styles.inputFields}
+          {...website}
+        /><br />
+        <TextField
+          floatingLabelText="Address"
+          style={styles.inputFields}
+          {...address}
+        /><br />
+        <TextField
+          floatingLabelText="Notes"
+          style={styles.inputFields}
+          {...notes}
+        /><br />
+      <RaisedButton label="Submit" style={styles.submitButton} onMouseDown={this.onSubmit.bind(this)} />
       </form>
     );
   }
@@ -60,5 +83,5 @@ class InputForm extends Component {
 
 export default reduxForm({
   form: 'contactForm',
-  fields: ['firstName', 'lastName', 'email', 'notes']
+  fields: ['firstName', 'lastName', 'occupation', 'organization', 'email', 'phone', 'website', 'address', 'notes']
 }, null, { addContact })(InputForm);

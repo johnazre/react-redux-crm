@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { removeContact } from '../actions/actions';
 
+import RaisedButton from 'material-ui/lib/raised-button';
+
 
 class ContactList extends Component {
 
@@ -24,10 +26,15 @@ class ContactList extends Component {
               <li key={contact.id} style={styles.listItem}>
                 <p>First name: {contact.text.firstName}</p>
                 <p>Last name: {contact.text.lastName}</p>
+                <p>Occupation: {contact.text.occupation}</p>
+                <p>Organization: {contact.text.occupation}</p>
                 <p>Email: {contact.text.email}</p>
-                <button className="btn btn-default" onClick={() => this.props.removeContact(index)}>
-                  Remove
-                </button>
+                <p>Phone: {contact.text.phone}</p>
+                <p>Website: {contact.text.website}</p>
+                <p>Address: {contact.text.address}</p>
+                <p>Notes: {contact.text.notes}</p>
+                <RaisedButton label="Remove" onMouseDown={() => this.props.removeContact(index)} />
+
               </li>
 
             )
