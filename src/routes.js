@@ -9,7 +9,6 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={Contacts} />
     <Route path="tasks" component={Tasks} />
-
   </Route>
 
 );

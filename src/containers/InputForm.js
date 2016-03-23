@@ -20,21 +20,31 @@ class InputForm extends Component {
 
     const styles = {
       submitButton : {
-        marginTop : 15
+        position: "absolute",
+        right: 25,
+        top: 380,
+        marginBottom: 20
       },
       inputFields: {
-        width: '50%'
+        width: '45%',
+        margin: "0 10px"
+      },
+      noteField: {
+        width: '95%'
+      },
+      formStyle: {
+        position: "relative"
       }
     }
 
     return (
-      <form className="form-group">
+      <form className="form-group" style={styles.formStyle}>
 
         <TextField
           floatingLabelText="First Name"
           style={styles.inputFields}
           {...firstName}
-        /><br />
+        />
         <TextField
           floatingLabelText="Last Name"
           style={styles.inputFields}
@@ -44,7 +54,7 @@ class InputForm extends Component {
           floatingLabelText="Occupation"
           style={styles.inputFields}
           {...occupation}
-        /><br />
+        />
         <TextField
           floatingLabelText="Organization"
           style={styles.inputFields}
@@ -54,7 +64,7 @@ class InputForm extends Component {
           floatingLabelText="Email"
           style={styles.inputFields}
           {...email}
-        /><br />
+        />
         <TextField
           floatingLabelText="Phone"
           style={styles.inputFields}
@@ -64,7 +74,7 @@ class InputForm extends Component {
           floatingLabelText="Website"
           style={styles.inputFields}
           {...website}
-        /><br />
+        />
         <TextField
           floatingLabelText="Address"
           style={styles.inputFields}
@@ -72,7 +82,7 @@ class InputForm extends Component {
         /><br />
         <TextField
           floatingLabelText="Notes"
-          style={styles.inputFields}
+          style={styles.noteField}
           {...notes}
         /><br />
       <RaisedButton label="Submit" style={styles.submitButton} onMouseDown={handleSubmit(this.onSubmit.bind(this))} />
@@ -85,3 +95,6 @@ export default reduxForm({
   form: 'contactForm',
   fields: ['firstName', 'lastName', 'occupation', 'organization', 'email', 'phone', 'website', 'address', 'notes']
 }, null, { addContact })(InputForm);
+
+
+arr.ma

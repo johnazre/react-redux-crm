@@ -10,32 +10,45 @@ class ContactList extends Component {
 
   render() {
     const styles = {
+      listPadding: {
+        padding: "0 20px 0 0"
+      },
       listItem : {
-        padding: 20,
+        padding: "0 0 20px 20px",
         border: "1px solid black",
         listStyleType: 'none'
+      },
+      inputFields: {
+        width: '45%',
+        margin: "0 10px"
+      },
+      noteField: {
+        width: '95%'
+      },
+      formStyle: {
+        padding: 30
       }
     }
     console.log('this is props in ContactList: ', this.props);
     return (
-      <ul>
+      <ul style={styles.listPadding}>
         {
           this.props.contacts.all.map((contact, index) => {
             return (
-
-              <li key={contact.id} style={styles.listItem}>
-                <p>First name: {contact.text.firstName}</p>
-                <p>Last name: {contact.text.lastName}</p>
-                <p>Occupation: {contact.text.occupation}</p>
-                <p>Organization: {contact.text.occupation}</p>
-                <p>Email: {contact.text.email}</p>
-                <p>Phone: {contact.text.phone}</p>
-                <p>Website: {contact.text.website}</p>
-                <p>Address: {contact.text.address}</p>
-                <p>Notes: {contact.text.notes}</p>
-                <RaisedButton label="Remove" onMouseDown={() => this.props.removeContact(index)} />
-
-              </li>
+              <div style={styles.formStyle}>
+                <li key={contact.id} style={styles.listItem}>
+                  <p>First name: {contact.text.firstName}</p>
+                  <p>Last name: {contact.text.lastName}</p>
+                  <p>Occupation: {contact.text.occupation}</p>
+                  <p>Organization: {contact.text.organization}</p>
+                  <p>Email: {contact.text.email}</p>
+                  <p>Phone: {contact.text.phone}</p>
+                  <p>Website: {contact.text.website}</p>
+                  <p>Address: {contact.text.address}</p>
+                  <p>Notes: {contact.text.notes}</p>
+                  <RaisedButton label="Remove" style={styles.submitButton} onMouseDown={() => this.props.removeContact(index)} />
+                </li>
+              </div>
 
             )
           })

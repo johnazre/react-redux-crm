@@ -17,16 +17,22 @@ class TaskForm extends Component {
   }
 
   render() {
+
     const { fields: {taskName, description, startDate, dueDate}, handleSubmit } = this.props;
 
     const styles = {
-      submitButton : {
-        marginTop : 15
-      }
+      listPadding: {
+        padding: "0 20px 0 0"
+      },
+      listItem : {
+        padding: "0 0 20px 20px",
+        border: "1px solid black",
+        listStyleType: 'none'
+      },
     }
 
     return (
-      <form className="form-group" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form className="form-group" style={styles.formStyle} onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <TextField
           floatingLabelText="Task Name"
           style={styles.inputFields}

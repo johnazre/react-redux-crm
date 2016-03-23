@@ -1,17 +1,26 @@
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background-color: #98dafc;
 }
 
 .container {
     display: -webkit-flex;
     display: flex;
     flex-direction: row;
+    padding-left: 17%;
 }
 
 .flex-item-app{
   flex: 1;
-  border: 1px black solid;
+  border: 1px rgba(230,230,230,1) solid;
   padding-left: 20px;
   overflow-y: scroll;
+  background-color: #feffff;
+}
+
+.logoImage {
+  width: 70%;
+  padding-left: 14%;
+  padding-top: 60vh;
 }

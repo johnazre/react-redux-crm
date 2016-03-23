@@ -10,15 +10,18 @@ class TaskList extends Component {
 
   render() {
     const styles = {
+      listPadding: {
+        padding: 0,
+      },
       listItem : {
-        padding: 20,
+        padding: "0 0 20px 20px",
         border: "1px solid black",
         listStyleType: 'none'
       }
     }
     console.log('this is props in TL: ', this.props.tasks);
     return (
-      <ul>
+      <ul style={styles.listPadding}>
         {
           this.props.tasks.all.map((task, index) => {
             return (
