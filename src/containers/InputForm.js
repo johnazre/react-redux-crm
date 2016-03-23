@@ -95,6 +95,3 @@ export default reduxForm({
   form: 'contactForm',
   fields: ['firstName', 'lastName', 'occupation', 'organization', 'email', 'phone', 'website', 'address', 'notes']
 }, null, { addContact })(InputForm);
-
-
-arr.ma
